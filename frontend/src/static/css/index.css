@@ -1,0 +1,33 @@
+html, body { 
+  height: 100%; 
+  box-sizing: border-box;
+  margin: 0px;
+}  
+  
+#MainSection {
+  /* Inserindo imagem no fundo da Main Section - Início */
+  background-image: url('../img/garota.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: calc(100vh - 200px);
+  /* Inserindo imagem no fundo da Main Section - Fim */
+}
+
+
+#LoginCard {
+  /* Centralizando Login Card - Início */
+  /* display: table;
+  margin: 0 auto; */
+  max-width: 400px;
+  position: absolute;
+  top: 10%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%)
+  /* Centralizando Login Card - Fim */
+}

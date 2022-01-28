@@ -1,8 +1,6 @@
 from django.contrib.auth.models import User, Group
-from beneficiario.models import Beneficiario
-from rest_framework import viewsets
-from rest_framework import permissions
-from .serializers import UserSerializer, GroupSerializer, BeneficiarioSerializer
+from rest_framework import viewsets, permissions, authentication
+from .serializers import UserSerializer, GroupSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -12,6 +10,7 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [authentication.TokenAuthentication, authentication.SessionAuthentication]
 
 
 class GroupViewSet(viewsets.ModelViewSet):
@@ -21,13 +20,5 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [authentication.TokenAuthentication, authentication.SessionAuthentication]
 
-
-
-class BeneficiarioViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint que permite beneficiários ser vistos ou editados
-    """
-    queryset = Beneficiario.objects.all()
-    serializer_class = BeneficiarioSerializer
-    permission_class = [permissions.IsAuthenticated]
