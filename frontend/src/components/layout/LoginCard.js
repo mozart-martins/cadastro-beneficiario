@@ -8,7 +8,7 @@ const LoginCard = () => {
                 <div className="col s12">
                     <div className="card-panel blue darken-4">
                         <p className="card-title white-text center">
-                            Login
+                            Cadastro de Beneficiários
                         </p>
                         <div className="input-field col">
                             <i className="material-icons prefix">account_circle</i>
