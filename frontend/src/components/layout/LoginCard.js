@@ -13,15 +13,15 @@ const LoginCard = () => {
                         <div className="input-field col">
                             <i className="material-icons prefix">account_circle</i>
                             <input id="password" type="text" className="validate" />
-                            <label for="password">Usuário</label>
+                            <label htmlFor="password">Usuário</label>
                         </div>
                         <div className="input-field col">
                             <i className="material-icons prefix">security</i>
                             <input id="user" type="password" className="validate" />
-                            <label for="user">Senha</label>
+                            <label htmlFor="user">Senha</label>
                         </div>
                         <div className="center">
-                            <a className="waves-effect waves-light btn-large blue darken-3">
+                            <a href="!#" className="waves-effect waves-light btn-large blue darken-3">
                                 <i className="material-icons left">vpn_key</i>
                                 Login
                             </a>
