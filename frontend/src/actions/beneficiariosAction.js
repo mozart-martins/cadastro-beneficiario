@@ -18,7 +18,14 @@ export const getBeneficiarios = () => {
         try {
             setLoading(true)
 
-            const res = await fetch('/beneficiarios/')
+            const config = {
+                headers: {
+                    'Content-type': 'application/json' ,
+                    'Authorization': 'token ' + localStorage.getItem('token')
+                }
+            }
+
+            const res = await fetch('beneficiarios/', config)
             const data = await res.json()
 
             dispatch({

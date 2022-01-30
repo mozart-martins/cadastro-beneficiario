@@ -3,28 +3,31 @@ import { connect } from 'react-redux'
 import BeneficiarioItem from './BeneficiarioItem'
 
 
-const BeneficiariosList = ({ beneficiario: { beneficiarios } }) => {
-    return (
-        <div className="container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>CPF</th>
-                        <th>Identidade / Expeditor</th>
-                        <th>Expedição</th>
-                        <th>Nascimento</th>
-                        <th>Nome</th>
-                    </tr>
-                </thead>
+const BeneficiariosList = ({ beneficiario: { beneficiarios, loading } }) => {
+    if (beneficiarios !== null && loading === false)
+        return (
+            <div className="container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CPF</th>
+                            <th>Identidade / Expeditor</th>
+                            <th>Expedição</th>
+                            <th>Nascimento</th>
+                            <th>Nome</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    { beneficiarios !== null ? beneficiarios.map( beneficiario => 
-                       <BeneficiarioItem key={beneficiario.pk} beneficiario={beneficiario} /> 
-                    ) : <p>Não há beneficiários cadastrados...</p>}
-                </tbody>
-        </table>
-        </div>
-    )
+                    <tbody>
+                        { beneficiarios.map( beneficiario => 
+                            <BeneficiarioItem key={beneficiario.pk} beneficiario={beneficiario} /> 
+                        ) }
+                    </tbody>
+            </table>
+            </div>
+        )
+    else
+        return (<h3>Não há beneficiários cadastrados...</h3>)
 }
 
 

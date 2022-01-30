@@ -3,7 +3,6 @@ import Moment from 'react-moment'
 
 
 const BeneficiarioItem = ({ beneficiario }) => {
-    // console.log(beneficiario)
     const { cpf, data_expedicao, endereco, estado_civil, identidade, nascimento, nome, orgao_expeditor } = beneficiario
 
     return (

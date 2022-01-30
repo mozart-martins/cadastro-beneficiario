@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './static/css/index.css'
+import 'materialize-css/dist/css/materialize.min.css'
+import M from 'materialize-css/dist/js/materialize.min.js'
 
 import SearchBar from './components/layout/SearchBar'
 import MainSection from './components/layout/MainSection'
@@ -10,6 +12,13 @@ import store from './components/store'
 
 
 function App() {
+
+  useEffect(() => {
+    // Init Materialize
+    M.AutoInit()
+  })
+
+
   return (
     <Provider store={store}>
       <SearchBar />

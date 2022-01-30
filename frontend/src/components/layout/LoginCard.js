@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { connect } from 'react-redux'
+import { getAuthToken } from './../../actions/tokenActions'
 
 
-const LoginCard = () => {
+const LoginCard = ({ getAuthToken }) => {
+    
+    const userEl = useRef(null)
+    const passwordEl = useRef(null)
+
+    const onClick = () => {
+        getAuthToken(userEl.current.value, passwordEl.current.value)
+    }
+
+
     return (
         <div id="LoginCard" className="container">
             <div className="row">
@@ -12,16 +23,16 @@ const LoginCard = () => {
                         </p>
                         <div className="input-field col">
                             <i className="material-icons prefix">account_circle</i>
-                            <input id="password" type="text" className="validate" />
+                            <input id="password-el" ref={userEl} type="text" className="validate" />
                             <label htmlFor="password">Usuário</label>
                         </div>
                         <div className="input-field col">
                             <i className="material-icons prefix">security</i>
-                            <input id="user" type="password" className="validate" />
+                            <input id="user-el" ref={passwordEl} type="password" className="validate" />
                             <label htmlFor="user">Senha</label>
                         </div>
                         <div className="center">
-                            <a href="!#" className="waves-effect waves-light btn-large blue darken-3">
+                            <a onClick={onClick} className="waves-effect waves-light btn-large blue darken-3">
                                 <i className="material-icons left">vpn_key</i>
                                 Login
                             </a>
@@ -34,4 +45,4 @@ const LoginCard = () => {
 }
 
 
-export default LoginCard
+export default connect(null, { getAuthToken })(LoginCard)
