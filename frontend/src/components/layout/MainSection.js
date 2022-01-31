@@ -16,7 +16,7 @@ const MainSection = ({ token: { token, loading }, verifyTokenExist }) => {
 
     if (loading === true)
         <Preloader />
-    else if(token !== null && loading === false) 
+    else if(token !== null && token !== undefined && loading === false) 
         return <Beneficiarios />
     else
         return (

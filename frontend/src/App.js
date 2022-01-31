@@ -6,6 +6,7 @@ import M from 'materialize-css/dist/js/materialize.min.js'
 import SearchBar from './components/layout/SearchBar'
 import MainSection from './components/layout/MainSection'
 import Footer from './components/layout/Footer'
+import AddBeneficiarioModal from './components/beneficiarios/AddBeneficiarioModal'
 
 import { Provider } from 'react-redux'
 import store from './components/store'
@@ -24,6 +25,7 @@ function App() {
       <SearchBar />
       <MainSection />
       <Footer />
+      <AddBeneficiarioModal />
     </Provider>
   );
 }

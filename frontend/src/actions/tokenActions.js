@@ -33,13 +33,20 @@ import {
             const res = await fetch('/api-token-auth/', config)
             const data = await res.json()
 
-            
-            dispatch({
-                type: GET_AUTH_TOKEN,
-                payload: data
-            })
-
-            localStorage.setItem('token', data.token)
+            if(data !== undefined) {
+                dispatch({
+                    type: GET_AUTH_TOKEN,
+                    payload: data
+                })
+    
+                localStorage.setItem('token', data.token)
+            }
+            else {
+                dispatch({
+                    type: AUTH_TOKEN_ERROR,
+                    payload: 'O token está vazio.'
+                })
+            }
 
             setLoading(false)
          } catch (error) {
@@ -54,7 +61,7 @@ import {
 
  export const verifyTokenExist = () => {
      return async (dispatch) => {
-         if(localStorage.getItem('token') !== null) {
+         if(localStorage.getItem('token') !== null && localStorage.getItem('token') !== undefined) {
              dispatch({
                  type: TOKEN_EXITS,
                  payload: localStorage.getItem('token')

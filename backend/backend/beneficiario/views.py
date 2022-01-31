@@ -12,4 +12,4 @@ class BeneficiarioViewSet(viewsets.ModelViewSet):
     queryset = Beneficiario.objects.all()
     serializer_class = BeneficiarioSerializer
     permission_classes = [permissions.IsAuthenticated]
-    authentication_classes = [authentication.TokenAuthentication, authentication.SessionAuthentication]
+    authentication_classes = [authentication.TokenAuthentication]

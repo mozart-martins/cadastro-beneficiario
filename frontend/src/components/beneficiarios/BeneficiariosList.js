@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import BeneficiarioItem from './BeneficiarioItem'
 
 
-const BeneficiariosList = ({ beneficiario: { beneficiarios, loading } }) => {
+const BeneficiariosList = ({ beneficiario: { beneficiarios, filtereds, loading } }) => {
     if (beneficiarios !== null && loading === false)
         return (
             <div className="container">
@@ -19,7 +19,11 @@ const BeneficiariosList = ({ beneficiario: { beneficiarios, loading } }) => {
                     </thead>
 
                     <tbody>
-                        { beneficiarios.map( beneficiario => 
+                        { filtereds !== null ? 
+                            filtereds.map( beneficiario => 
+                                <BeneficiarioItem key={beneficiario.pk} beneficiario={beneficiario} /> 
+                            )
+                        : beneficiarios.map( beneficiario => 
                             <BeneficiarioItem key={beneficiario.pk} beneficiario={beneficiario} /> 
                         ) }
                     </tbody>
@@ -27,7 +31,7 @@ const BeneficiariosList = ({ beneficiario: { beneficiarios, loading } }) => {
             </div>
         )
     else
-        return (<h3>Não há beneficiários cadastrados...</h3>)
+        return <h3>Não há beneficiários cadastrados...</h3>
 }
 
 

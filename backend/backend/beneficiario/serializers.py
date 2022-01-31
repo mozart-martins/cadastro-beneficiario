@@ -6,7 +6,6 @@ class BeneficiarioSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Beneficiario
         fields = ['pk',
-            'responsavel', 
             'nome', 
             'nascimento', 
             'estado_civil', 

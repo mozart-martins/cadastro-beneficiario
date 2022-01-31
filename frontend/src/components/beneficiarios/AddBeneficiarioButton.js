@@ -4,7 +4,7 @@ import React from "react"
 const AddBeneficiarioButton = () => {
     return (
         <div className="fixed-action-btn">
-            <a href="#add-beneficiario-modal" className="btn-floating modal-trigger btn-large waves-effect waves-light blue darken-4">
+            <a href="#add-beneficiario-modal" className="modal-trigger btn-floating btn-large waves-effect waves-light blue darken-4">
                 <i className="material-icons">add</i>
             </a>
             <ul>

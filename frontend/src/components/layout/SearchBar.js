@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import Logo from './../../static/img/logo_menor.png'
+import { searchBeneficiario } from './../../actions/beneficiariosAction'
 
-const SearchBar = () => {
+const SearchBar = ({ beneficiario, searchBeneficiario }) => {
+
+
+    const onChange = (keys) => {
+
+        if(keys === '')
+            beneficiario.filtereds = beneficiario.beneficiarios
+
+        searchBeneficiario(keys)
+    }
+
     return (
         <nav className="yellow accent-2">
         <a href="#!" className="brand-logo left">
@@ -10,7 +22,12 @@ const SearchBar = () => {
         <div className="nav-wrapper">
         <form className="right  blue darken-4 hide-on-small-only">
             <div className="input-field">
-                <input id="search" type="search" required />
+                <input 
+                    id="search" 
+                    type="search" 
+                    required 
+                    onChange={ e => onChange(e.target.value) }
+                />
                 <label className="label-icon" htmlFor="search">
                     <i className="material-icons medium">search</i>
                 </label>
@@ -21,4 +38,11 @@ const SearchBar = () => {
     )
 }
 
-export default SearchBar
+const mapStateToProps = state => ({
+    beneficiario: state.beneficiario
+})
+
+
+export default connect(mapStateToProps, { searchBeneficiario })(SearchBar)
+
+

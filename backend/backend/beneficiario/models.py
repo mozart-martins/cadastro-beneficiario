@@ -9,16 +9,15 @@ class Beneficiario(models.Model):
         ("A", "Amasiado")
     )
 
-    # Responsável pelo cadastro
-    responsavel = models.ForeignKey(User, on_delete=models.CASCADE) 
     nome = models.CharField(max_length=300)
-    nascimento = models.DateTimeField()
+    telefone = models.CharField(max_length=20)
+    nascimento = models.DateField()
     estado_civil = models.CharField(max_length=1, choices=ESTADO_CIVIL)
     cpf = models.IntegerField()
+    endereco = models.TextField()
     identidade = models.IntegerField()
     orgao_emissor = models.CharField(max_length=50)
-    data_expedicao = models.DateTimeField()
-    endereco = models.TextField()
+    data_expedicao = models.DateField()
 
 
     def __str__(self):
